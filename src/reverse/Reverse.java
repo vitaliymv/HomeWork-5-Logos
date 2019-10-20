@@ -5,13 +5,22 @@ public class Reverse {
     public static void main(String[] args) {
         String str = "Java, is number 1 programing language!";
         System.out.println("Default stroke: " + str);
+        //System.out.println();
+        //buffer(str);
+        //System.out.println();
+        //builder(str);
+        //System.out.println();
+        //arrayChar(str);
         System.out.println();
-        buffer(str);
-        System.out.println();
-        builder(str);
-        System.out.println();
-        arrayChar(str);
-        System.out.println();
+        reverseWord(str);
+    }
+    
+    private static void  reverseWord(String str) {
+        String[] words = str.split(" ");
+        for (String newStr : words) {
+            StringBuffer bufferRev = new StringBuffer(newStr);
+            System.out.print(bufferRev.reverse() + "\t");
+        }
     }
 
     private static void buffer(String str) {
