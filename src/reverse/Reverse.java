@@ -5,39 +5,21 @@ public class Reverse {
     public static void main(String[] args) {
         String str = "Java, is number 1 programing language!";
         System.out.println("Default stroke: " + str);
-        //System.out.println();
-        //buffer(str);
-        //System.out.println();
-        //builder(str);
-        //System.out.println();
-        //arrayChar(str);
-        System.out.println();
-        reverseWord(str);
+        reverse(str);
     }
     
-    private static void  reverseWord(String str) {
-        String[] words = str.split(" ");
-        for (String newStr : words) {
-            StringBuffer bufferRev = new StringBuffer(newStr);
-            System.out.print(bufferRev.reverse() + "\t");
+    private static void reverse(String str) {
+    	StringBuilder temp = new StringBuilder();
+        StringBuilder res = new StringBuilder();
+
+        for (int i = 0; i < str.length(); i++) {
+            if (Character.isAlphabetic(str.charAt(i))) {
+                temp.append(str.charAt(i));
+            } else {
+                res.append(temp.reverse()).append(str.charAt(i));
+                temp.setLength(0);
+            }
         }
-    }
-
-    private static void buffer(String str) {
-        StringBuffer buffer = new StringBuffer(str);
-        System.out.println("Reverse with buffer method: " + buffer.reverse());
-    }
-
-    private static void builder(String str) {
-        StringBuilder builder = new StringBuilder(str);
-        System.out.println("Reverse with builder method " + builder.reverse());
-    }
-
-    private static void arrayChar(String str) {
-        char[] reverseArr = str.toCharArray();
-        System.out.print("Reverse with arrayChar method: ");
-        for (int i = reverseArr.length - 1; i >= 0; i--) {
-            System.out.print(reverseArr[i]);
-        }
+        System.out.println(res.toString());
     }
 }
